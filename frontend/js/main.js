@@ -82,7 +82,7 @@ class ECommerceApp {
                 </div>
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 0.8rem;">
                     <span style="color: #27ae60; font-weight: bold;">₹${p.price}</span>
-                    <button class="wishlist-btn" data-product-id="${p.id}" onclick="app.toggleWishlist(${p.id})" style="background: white; border: 2px solid #e74c3c; color: #e74c3c; padding: 0.4rem 0.8rem; border-radius: 4px; cursor: pointer; font-weight: 600;">🤍 Save</button>
+                    <button class="wishlist-btn" data-product-id="${p.id}" onclick="app.toggleWishlist('${p.id}')" style="background: white; border: 2px solid #e74c3c; color: #e74c3c; padding: 0.4rem 0.8rem; border-radius: 4px; cursor: pointer; font-weight: 600;">🤍 Save</button>
                 </div>
             </div>
         `).join('');
@@ -297,7 +297,7 @@ class ECommerceApp {
                 <h3>${product.name}</h3>
                 <p>Save ${product.discount}%</p>
                 <p class="deal-timer">Limited Time Offer ⏰</p>
-                <button onclick="app.addToCart(${product.id})" aria-label="Add ${product.name} to cart">
+                <button onclick="app.addToCart('${product.id}')" aria-label="Add ${product.name} to cart">
                     View Deal
                 </button>
             </div>
@@ -390,7 +390,7 @@ class ECommerceApp {
                     </div>
                     <button 
                         class="add-to-cart-btn" 
-                        onclick="app.addToCart(${product.id})"
+                        onclick="app.addToCart('${product.id}')"
                         aria-label="Add ${product.name} to shopping cart"
                     >
                         🛒 Add to Cart
