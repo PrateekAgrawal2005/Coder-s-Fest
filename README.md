@@ -1,372 +1,332 @@
-# ShopHub - Advanced E-Commerce Platform
+﻿# 🛍️ ShopHub — Full-Stack E-Commerce Platform
 
-## 📋 Overview
+<div align="center">
 
-ShopHub is a **highly secure, scalable, and conversion-optimized e-commerce platform** designed for fashion, electronics, groceries, and lifestyle products. Built with modern web technologies and industry best practices.
+![Flask](https://img.shields.io/badge/Flask-2.3.0-green?style=for-the-badge&logo=flask)
+![JavaScript](https://img.shields.io/badge/JavaScript-Vanilla-yellow?style=for-the-badge&logo=javascript)
+![SQLite](https://img.shields.io/badge/Database-SQLite-blue?style=for-the-badge&logo=sqlite)
+![License](https://img.shields.io/badge/License-MIT-red?style=for-the-badge)
 
-## 🎯 Key Features
+**A modern, full-stack e-commerce platform built with Flask backend and Vanilla JavaScript frontend.**
 
-### 1. **Homepage - Attraction, Trust & Conversion**
-- ✨ AI-curated featured products
-- 🔒 Visible security indicators (SSL, PCI-DSS, trusted badges)
-- ⭐ Verified customer reviews and ratings
-- 📋 Clear return, refund, and cancellation workflows
-- 🏆 Trust banners with security certifications
+[Features](#-features) • [Tech Stack](#-tech-stack) • [Quick Start](#-quick-start) • [API Docs](#-api-endpoints) • [Team Setup](#-for-teammates)
 
-### 2. **Enhanced Shopping Experience**
-- 🔍 **AI-Powered Search** with typo tolerance
-- 🎨 Advanced filters and sorting options
-- 📸 Rich product detail pages with media gallery
-- 💬 Reviews, Q&A, and product comparison
-- 🛒 Optimized cart and checkout flow
-- 📱 Responsive design for all devices
+</div>
 
-### 3. **Multiple Payment Methods**
-- 💳 Credit/Debit Cards
-- 📱 UPI (Unified Payments Interface)
-- 💰 Digital Wallets
-- 🚚 Cash on Delivery (COD)
-- ⚡ Failover handling and retries
+---
 
-### 4. **Real-Time Order Tracking**
-- 📍 Live order status updates
-- 🔔 Email and SMS notifications
-- 📦 Delivery timeline tracking
-- 🔄 Easy order cancellation (before shipping)
+## 📌 Overview
 
-### 5. **Personalization & AI**
-- 🤖 ML-based product recommendations
-- 🎯 Personalized user experience
-- 💎 Loyalty tiers (Bronze, Silver, Gold, Platinum)
-- 🎁 AI-curated deals based on preferences
-- 🔔 Smart notifications
+**ShopHub** is a production-ready e-commerce platform demonstrating professional full-stack web development. It includes a RESTful Flask API backend with JWT authentication, a dynamic Vanilla JS frontend, SQLite database with 8 relational models, and a complete shopping experience with cart, wishlist, search, and recommendations.
 
-### 6. **Accessibility (WCAG Compliance)**
-- ⌨️ Full keyboard navigation
-- 🔊 Screen reader support (ARIA labels)
-- 👁️ High contrast mode
-- 🎨 Color-blind friendly mode
-- 📝 Text size adjustment
-- ⚡ Reduced motion support
+---
 
-### 7. **Security & Compliance**
-- 🔐 SSL/TLS encryption
-- 🛡️ PCI-DSS compliance
-- 🔑 JWT authentication
-- 🔒 Password hashing (bcrypt)
-- 📋 GDPR compliance
-- 📊 Data encryption at rest
+## ✨ Features
 
-### 8. **Multilingual Support**
-- 🌍 English, Hindi, Spanish (extensible)
-- 🗣️ Regional language support
-- 🎯 Localized pricing
+| Feature | Description |
+|---------|-------------|
+| 🔐 **User Authentication** | JWT-based login, registration, and profile management |
+| 🛒 **Shopping Cart** | Add/remove items, auto-calculated subtotal, tax and shipping |
+| ❤️ **Wishlist** | Save favorites, sync with backend, persistent storage |
+| 🔍 **Smart Search** | Typo-tolerant search with live suggestions |
+| 🤖 **Recommendations** | Personalized product suggestions based on purchase history |
+| 💰 **Loyalty Program** | Bronze to Silver to Gold to Platinum tier system |
+| 📱 **Responsive Design** | Mobile-first layout for all screen sizes |
+| ♿ **Accessibility** | WCAG 2.1 compliant with keyboard navigation |
+| 💬 **3D Chatbot** | Interactive CSS chatbot widget on homepage |
+| 📦 **Order Management** | Create, track, and manage orders |
 
-### 9. **Customer Support**
-- 💬 24/7 AI chatbot
-- 👥 Live customer support
-- 📞 Multi-channel support
-- ❓ FAQ section
+---
 
-### 10. **Loyalty Program**
-- 💎 Tiered membership system
-- 🎁 Exclusive offers and early access
-- 🔄 Points redemption
-- 🎂 Birthday rewards
-- 📦 Free shipping perks
+## 🏗️ Tech Stack
 
-## 🏗️ Project Structure
+### Backend
+- **Flask 2.3.0** — Python web framework
+- **SQLAlchemy** — ORM for database models
+- **Flask-JWT-Extended** — JWT authentication
+- **Flask-CORS** — Cross-origin resource sharing
+- **SQLite** — Lightweight database
+
+### Frontend
+- **Vanilla JavaScript** — No frameworks, pure JS
+- **HTML5 + CSS3** — Semantic markup and modern styling
+- **Local Storage** — Offline-capable cart/wishlist
+
+---
+
+## 📁 Project Structure
 
 ```
 ecommerce_platform/
-├── frontend/                    # React/Vue Frontend
-│   ├── index.html              # Homepage
-│   ├── products.html           # Products page
-│   ├── cart.html               # Shopping cart
-│   ├── account.html            # User account
-│   ├── css/
-│   │   ├── styles.css          # Main styles
-│   │   └── accessibility.css   # A11y styles
-│   └── js/
-│       ├── main.js             # Core app logic
-│       ├── search.js           # AI search engine
-│       ├── recommendations.js  # Recommendation engine
-│       └── accessibility.js    # A11y features
 │
-├── backend/                     # Python Flask Backend
-│   ├── app.py                  # Main Flask app
-│   ├── config.py               # Configuration
-│   ├── requirements.txt         # Dependencies
-│   ├── models/
+├── 📂 backend/
+│   ├── app.py                  # Flask app entry point
+│   ├── config.py               # App configuration
+│   ├── requirements.txt        # Python dependencies
+│   ├── populate_db.py          # Initialize database with sample data
+│   ├── sample_data.py          # Sample products and users
+│   ├── .env.example            # Environment variables template
+│   ├── 📂 models/
 │   │   └── database.py         # SQLAlchemy models
-│   ├── routes/
-│   │   ├── auth.py             # Authentication
-│   │   ├── products.py         # Products API
-│   │   ├── orders.py           # Orders API
-│   │   ├── payments.py         # Payments API
-│   │   ├── users.py            # User profiles
-│   │   ├── recommendations.py  # Recommendations API
-│   │   └── search.py           # Search API
-│   └── utils/
-│       ├── security.py         # Security utilities
-│       └── validators.py       # Input validation
+│   └── 📂 routes/
+│       ├── auth.py             # Login, Register, Profile
+│       ├── products.py         # Product catalog
+│       ├── orders.py           # Order management
+│       ├── payments.py         # Payment processing
+│       ├── wishlist.py         # Wishlist CRUD
+│       ├── search.py           # Search and suggestions
+│       ├── recommendations.py  # Personalized picks
+│       └── users.py            # Loyalty and user info
 │
-└── README.md                    # This file
+├── 📂 frontend/
+│   ├── index.html              # Homepage + 3D chatbot
+│   ├── products.html           # Product catalog page
+│   ├── cart.html               # Shopping cart
+│   ├── account.html            # User dashboard
+│   ├── 📂 css/
+│   │   ├── styles.css          # Main stylesheet
+│   │   └── accessibility.css   # A11y styles
+│   └── 📂 js/
+│       ├── main.js             # Core app logic + API calls
+│       ├── search.js           # Search functionality
+│       ├── wishlist.js         # Wishlist management
+│       ├── recommendations.js  # Product recommendations
+│       └── accessibility.js    # Accessibility features
+│
+├── .gitignore
+└── README.md
 ```
 
-## 🚀 Getting Started
+---
+
+## 🚀 Quick Start
 
 ### Prerequisites
 - Python 3.8+
-- Node.js 14+ (if using Node.js backend)
-- Virtual environment tool (venv)
+- Git
 
-### Frontend Setup
+### 1. Clone the Repository
 
-1. **Open the frontend**:
 ```bash
-# Navigate to frontend directory
-cd ecommerce_platform/frontend
-
-# Open index.html in your browser
-# Or use a local server
-python -m http.server 8000
+git clone https://github.com/PrateekAgrawal2005/Coder-s-Fest.git
+cd Coder-s-Fest
 ```
 
-Visit `http://localhost:8000`
+### 2. Set Up Python Environment
 
-### Backend Setup
-
-1. **Create virtual environment**:
 ```bash
-cd ecommerce_platform/backend
-python -m venv venv
+# Windows
+python -m venv .venv
+.venv\Scripts\activate
 
-# Activate virtual environment
-# Windows:
-venv\Scripts\activate
-# Mac/Linux:
-source venv/bin/activate
+# macOS / Linux
+python3 -m venv .venv
+source .venv/bin/activate
 ```
 
-2. **Install dependencies**:
+### 3. Install Dependencies
+
 ```bash
-pip install -r requirements.txt
+pip install -r backend/requirements.txt
 ```
 
-3. **Set environment variables**:
+### 4. Initialize Database
+
 ```bash
-# Create .env file
-echo "SECRET_KEY=your-secret-key" > .env
-echo "JWT_SECRET_KEY=your-jwt-key" >> .env
-echo "DATABASE_URL=sqlite:///ecommerce.db" >> .env
+cd backend
+python populate_db.py
 ```
 
-4. **Run the application**:
+This creates **15 sample products** and **3 test users** automatically.
+
+### 5. Start Backend Server
+
 ```bash
 python app.py
 ```
 
-Backend will run on `http://localhost:5000`
+API running at `http://localhost:5000`
 
-## 📚 API Endpoints
+### 6. Start Frontend (New Terminal)
 
-### Authentication
-- `POST /api/auth/register` - Register new user
-- `POST /api/auth/login` - User login
-- `GET /api/auth/profile` - Get user profile
-- `PUT /api/auth/profile` - Update profile
-- `POST /api/auth/change-password` - Change password
+```bash
+cd frontend
+python -m http.server 8000
+```
 
-### Products
-- `GET /api/products` - Get all products (paginated)
-- `GET /api/products/<id>` - Get product details
-- `POST /api/products/search` - Search products
-- `GET /api/products/<id>/reviews` - Get product reviews
-- `POST /api/products/<id>/reviews` - Add review
-
-### Orders
-- `GET /api/orders` - Get user orders
-- `GET /api/orders/<id>` - Get order details
-- `POST /api/orders` - Create new order
-- `POST /api/orders/<id>/cancel` - Cancel order
-- `GET /api/orders/<id>/track` - Track order
-
-### Payments
-- `POST /api/payments/initialize` - Initialize payment
-- `POST /api/payments/process` - Process payment
-- `GET /api/payments/<order_id>/receipt` - Get receipt
-
-### Recommendations
-- `GET /api/recommendations/personalized` - Personalized recommendations
-- `GET /api/recommendations/trending` - Trending products
-- `GET /api/recommendations/crosssell/<product_id>` - Cross-sell products
-
-### Search
-- `GET /api/search?q=<query>` - Search products
-- `GET /api/search/suggestions?q=<query>` - Get search suggestions
-
-## 🔐 Security Features
-
-### Data Protection
-- 🔒 **Encryption**: All sensitive data encrypted in transit (SSL/TLS)
-- 🔑 **Authentication**: JWT tokens for API security
-- 🛡️ **Password Security**: Bcrypt hashing with salt rounds
-- 🔒 **Database**: SQLAlchemy ORM prevents SQL injection
-
-### Compliance
-- ✅ **PCI-DSS**: Payment card industry compliance
-- ✅ **GDPR**: User data protection and privacy
-- ✅ **WCAG 2.1**: Accessibility standards (AA level)
-- ✅ **SSL**: TLS 1.2+ encryption
-
-### Security Best Practices
-- CORS protection
-- CSRF token handling
-- Rate limiting (to be implemented)
-- Input validation and sanitization
-- Secure session management
-
-## ♿ Accessibility Features
-
-### WCAG 2.1 AA Compliance
-- Keyboard navigation (Alt shortcuts)
-- Screen reader support (ARIA labels)
-- Color contrast ratios (4.5:1 for text)
-- Focus indicators
-- Alternative text for images
-- Semantic HTML structure
-
-### User Features
-- 🌓 Dark mode support
-- 👁️ High contrast mode
-- 🎨 Color-blind friendly palette
-- 📝 Adjustable text size
-- ⌨️ Keyboard-only navigation
-- 🎯 Skip to content links
-
-### Testing
-- Screen reader tested (NVDA, JAWS compatible)
-- Keyboard navigation verified
-- WAVE accessibility checker compatible
-
-## 📊 Database Schema
-
-### Users
-- User profiles with loyalty tracking
-- Authentication credentials
-- Address and preferences
-- Loyalty points and tier
-
-### Products
-- Product catalog with categorization
-- Inventory management
-- Pricing and discounts
-- Reviews and ratings
-
-### Orders
-- Order management
-- Order items tracking
-- Shipping information
-- Order status timeline
-
-### Payments
-- Payment records
-- Transaction tracking
-- Refund management
-
-### Reviews
-- Product reviews
-- Ratings (1-5 stars)
-- Verified purchase badge
-- Helpful counts
-
-## 🎨 Frontend Technologies
-
-- **HTML5**: Semantic markup
-- **CSS3**: Responsive design with Flexbox/Grid
-- **JavaScript (Vanilla)**: No framework dependencies
-- **ARIA**: Accessibility attributes
-- **Local Storage**: Client-side data persistence
-
-## 🐍 Backend Technologies
-
-- **Flask**: Lightweight Python web framework
-- **SQLAlchemy**: ORM for database
-- **Flask-JWT-Extended**: JWT authentication
-- **Flask-CORS**: Cross-origin resource sharing
-- **SQLite**: Development database
-
-## 📱 Responsive Design
-
-- 📱 Mobile-first approach
-- 🖥️ Breakpoints: 480px, 768px, 1024px, 1440px
-- 📲 Touch-friendly interface
-- ⚡ Performance optimized
-- 🎨 Flexible layouts
-
-## 🧪 Testing
-
-### To test features:
-1. **Search**: Try "headphones" (tests typo tolerance)
-2. **Recommendations**: Browse products (personalizes over time)
-3. **Accessibility**: Press Tab key, use screen reader
-4. **Mobile**: Resize browser or use DevTools
-5. **Dark Mode**: Check system preferences
-
-## 🚀 Performance Optimization
-
-- ✅ Lazy loading for images
-- ✅ Minified CSS and JavaScript
-- ✅ Efficient database queries
-- ✅ Caching strategies
-- ✅ CDN-ready structure
-
-## 📈 Scalability
-
-### Horizontal Scaling
-- Stateless API design
-- Database replication ready
-- Load balancer compatible
-
-### Vertical Scaling
-- Efficient database indexing
-- Query optimization
-- Caching layer ready
-
-## 🔮 Future Enhancements
-
-- [ ] Real payment gateway integration
-- [ ] Advanced recommendation engine (collaborative filtering)
-- [ ] Video product demonstrations
-- [ ] AR/VR product preview
-- [ ] Marketplace vendor system
-- [ ] Social features and sharing
-- [ ] Mobile app (React Native)
-- [ ] Admin dashboard
-- [ ] Analytics and reporting
-- [ ] Advanced chatbot (NLP)
-
-## 📧 Support & Contact
-
-For support inquiries:
-- 📧 Email: support@shophub.com
-- 💬 Chat: Available 24/7
-- 🐛 Issues: Report via GitHub Issues
-
-## 📄 License
-
-This project is proprietary and confidential.
-
-## 👥 Team
-
-- **Frontend Developer**: UI/UX Implementation
-- **Backend Developer**: API and Database
-- **Security Expert**: Compliance and encryption
-- **Accessibility Specialist**: WCAG compliance
+Website at `http://localhost:8000`
 
 ---
 
-**Version**: 1.0.0  
-**Last Updated**: January 2026  
-**Status**: Production Ready ✅
+## 🔑 Test Accounts
+
+| Username | Email | Password |
+|----------|-------|----------|
+| john_doe | john@example.com | SecurePass@123 |
+| jane_smith | jane@example.com | SecurePass@456 |
+| demo_user | demo@shopHub.com | Demo@12345 |
+
+---
+
+## 📡 API Endpoints
+
+### Authentication
+```
+POST   /api/auth/register      Register new user
+POST   /api/auth/login         Login and get JWT token
+GET    /api/auth/profile       Get current user profile
+PUT    /api/auth/profile       Update profile
+```
+
+### Products
+```
+GET    /api/products           Get all products (paginated)
+GET    /api/products/<id>      Get single product
+GET    /api/search?q=<query>   Search products
+GET    /api/search/suggestions Search suggestions
+```
+
+### Wishlist (JWT required)
+```
+GET    /api/wishlist                      Get user wishlist
+POST   /api/wishlist                      Add item to wishlist
+DELETE /api/wishlist/<id>                 Remove by wishlist ID
+DELETE /api/wishlist/product/<id>         Remove by product ID
+DELETE /api/wishlist/clear                Clear entire wishlist
+GET    /api/wishlist/check/<id>           Check if product is wishlisted
+```
+
+### Orders (JWT required)
+```
+GET    /api/orders             Get user orders
+GET    /api/orders/<id>        Get order details
+POST   /api/orders             Create new order
+```
+
+### Other
+```
+POST   /api/payments/initialize              Initialize payment
+GET    /api/recommendations/personalized     Personalized picks
+GET    /api/users/loyalty-info               Loyalty info
+GET    /api/health                           Health check
+```
+
+---
+
+## 🧪 Testing the API
+
+```bash
+# Health check
+curl http://localhost:5000/api/health
+
+# Get all products
+curl http://localhost:5000/api/products?page=1
+
+# Search products
+curl -X POST http://localhost:5000/api/search \
+  -H "Content-Type: application/json" \
+  -d "{\"query\": \"headphones\"}"
+
+# Login
+curl -X POST http://localhost:5000/api/auth/login \
+  -H "Content-Type: application/json" \
+  -d "{\"email\": \"john@example.com\", \"password\": \"SecurePass@123\"}"
+```
+
+---
+
+## 👥 For Teammates
+
+### Contributing Workflow
+
+```bash
+# 1. Get latest code
+git pull origin master
+
+# 2. Create your feature branch
+git checkout -b feature/your-feature-name
+
+# 3. Make changes and commit
+git add .
+git commit -m "Add: your feature description"
+
+# 4. Push and open Pull Request
+git push origin feature/your-feature-name
+```
+
+### Branch Naming Convention
+- `feature/` — New features
+- `fix/` — Bug fixes
+- `docs/` — Documentation updates
+- `style/` — CSS/UI changes
+
+---
+
+## 🗄️ Database Models
+
+| Model | Description |
+|-------|-------------|
+| User | User accounts, profiles, loyalty info |
+| Product | Product catalog with pricing and inventory |
+| Order | Customer orders with status tracking |
+| OrderItem | Individual items within an order |
+| Review | Product reviews and ratings |
+| Payment | Payment records and status |
+| Wishlist | User saved products |
+
+---
+
+## ⚙️ Environment Configuration
+
+Copy `backend/.env.example` to `backend/.env` and update values:
+
+```env
+FLASK_ENV=development
+SECRET_KEY=your-secret-key
+JWT_SECRET_KEY=your-jwt-secret
+DATABASE_URL=sqlite:///ecommerce.db
+```
+
+---
+
+## 🔒 Security Features
+
+- JWT token authentication with 30-day expiry
+- Password hashing with Werkzeug
+- CORS configured for secure cross-origin requests
+- Input validation on all API endpoints
+- SQL injection protection via SQLAlchemy ORM
+- Authorization checks on all protected routes
+
+---
+
+## 📊 Project Stats
+
+- **51 files** tracked in Git
+- **20+ API endpoints** across 8 route modules
+- **8 database models** with full relational integrity
+- **4 HTML pages** with responsive design
+- **15 sample products** across 4 categories
+- **3 pre-built test accounts**
+
+---
+
+## 🤝 Team Members
+
+Built by the **Coder''s Fest** team.
+
+---
+
+## 📄 License
+
+This project is licensed under the **MIT License**.
+
+---
+
+<div align="center">
+
+**Star this repo if you found it helpful!**
+
+[View Live Repo](https://github.com/PrateekAgrawal2005/Coder-s-Fest)
+
+</div>
